@@ -51,7 +51,7 @@ class Login extends Component {
 								onChangeText={texto => this.props.modificaSenha(texto)}
 							/>
 							<TouchableOpacity onPress={() => this.props.showPsswrdOnOff()}>
-								<Image source={require('../imgs/feature-icon-2.png')} />
+								<Image source={require('../imgs/feature-icon-2.png')} resizeMethod= 'resize'/>
 							</TouchableOpacity>
 						</View>
 
