@@ -11,7 +11,7 @@ function Item({ title }) {
 	if(title.tipo == 'e') {
 		return (
 			<View style={{ alignItems: 'flex-end', marginTop: 5, marginBottom: 5, marginLeft: 40 }}>
-				<Text style={{ fontSize: 18, color: '#000', padding: 10, backgroundColor: '#dbf5b4', elevation: 1 }}>
+				<Text style={{ fontSize: 15, color: '#000', padding: 10, backgroundColor: '#dbf5b4', elevation: 1, borderRadius: 10 }}>
 					{title.mensagem}
 				</Text>
 			</View>
@@ -19,7 +19,7 @@ function Item({ title }) {
 	}
 	return (
 		<View style={{ alignItems: 'flex-start', marginTop: 5, marginBottom: 5, marginRight: 40 }}>
-			<Text style={{ fontSize: 18, color: '#000', padding: 10, backgroundColor: '#f7f7f7', elevation: 1}}>
+			<Text style={{ fontSize: 15, color: '#000', padding: 10, backgroundColor: '#f7f7f7', elevation: 1, borderRadius: 10}}>
 				{title.mensagem}
 			</Text>
 		</View>
@@ -63,14 +63,14 @@ class Conversa extends Component {
 						/>
 				</View>
 
-				<View style={{ flexDirection: 'row', height: 60 }}>
+				<View style={{ flexDirection: 'row', height: 55 }}>
 					<TextInput 
 						value={this.props.mensagem}
 						onChangeText={texto => this.props.modificaMensagem(texto)}
 						placeholder='Envie uma mensagem!' 
-						style={{ flex: 4, backgroundColor:'#fff', fontSize: 18 }}
+						style={{ flex: 4, backgroundColor:'#fff', fontSize: 15, borderRadius: 50, padding: 20 }}
 					/>
-					<TouchableOpacity onPress={() => this._enviarMensagem()}>
+					<TouchableOpacity onPress={() => this._enviarMensagem()} style={{ marginLeft: 10 }}>
 						<Image source={require('../imgs/enviar_mensagem.png')}/>
 					</TouchableOpacity>
 				</View>

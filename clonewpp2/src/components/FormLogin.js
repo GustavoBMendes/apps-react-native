@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button, ImageBackground, ActivityIndicator, Image } from 'react-native';
+import { View, Text, TextInput, Button, ImageBackground, ActivityIndicator, Image, StatusBar } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { modificaEmail, modificaSenha, autenticarUser, showPsswrdOnOff } from '../actions/AutenticacaoActions';
@@ -29,19 +29,21 @@ class Login extends Component {
 		return (
 			<ImageBackground style={{flex: 1}} source={require('../imgs/bg.png')}>
 				<View style={{ flex: 1, padding: 10 }}>
-					
+					<StatusBar backgroundColor='#115E54'/>
 					<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 						<Text style={{ fontSize: 25, color: '#fff' }}>Whats App Clone</Text>
 					</View>
 					
 					<View style={{ flex: 3, justifyContent: 'center' }}>
-						<TextInput 
-							value={this.props.email} 
-							style={{ fontSize: 20, height: 45 }} 
-							placeholder='E-mail' placeholderTextColor='#fff' 
-							onChangeText={texto => this.props.modificaEmail(texto)}
-						/>
-						<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+						<View style={{ borderBottomWidth: 0.7, padding: 5 }}>
+							<TextInput 
+								value={this.props.email} 
+								style={{ fontSize: 20, height: 45 }} 
+								placeholder='E-mail' placeholderTextColor='#fff' 
+								onChangeText={texto => this.props.modificaEmail(texto)}
+							/>
+						</View>
+						<View style={{ flexDirection: 'row', justifyContent: 'space-between', borderBottomWidth: 0.7, alignItems: 'center', padding: 5 }}>
 							<TextInput 
 								secureTextEntry={this.props.show_psswrd} 
 								value={this.props.senha} 
@@ -51,7 +53,7 @@ class Login extends Component {
 								onChangeText={texto => this.props.modificaSenha(texto)}
 							/>
 							<TouchableOpacity onPress={() => this.props.showPsswrdOnOff()}>
-								<Image source={require('../imgs/feature-icon-2.png')} resizeMethod= 'resize'/>
+								<Image source={require('../imgs/olho.png')} resizeMethod= 'resize'/>
 							</TouchableOpacity>
 						</View>
 
