@@ -31,7 +31,7 @@ class Conversa extends Component {
 	UNSAFE_componentWillMount() {
 		const { route } = this.props;
 		const { contatoEmail } = route.params;
-		console.log(contatoEmail);
+		console.log('CONVERSA 1', contatoEmail);
 		this.props.conversaUsuarioFetch(contatoEmail);
 		this.criaFonteDeDados(this.props.conversa);
 	}
@@ -48,8 +48,9 @@ class Conversa extends Component {
 		const { route } = this.props;
 		const { contatoNome, contatoEmail } = route.params;
 		const { mensagem } = this.props;
-		console.log(contatoEmail);
-		console.log(contatoNome);
+		console.log('CONVERSA 2', mensagem);
+		console.log('CONVERSA 2', contatoEmail);
+		console.log('CONVERSA 2', contatoNome);
 		this.props.enviarMensagem(mensagem, contatoNome, contatoEmail);
 	}
 

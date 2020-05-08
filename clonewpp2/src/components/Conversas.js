@@ -8,6 +8,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function Cabecalho({ item }) {
 	const navigation = useNavigation();
+	console.log('LISTA CONVERSAS', item.nome);
+	console.log('LISTA CONVERSAS', item.contatoEmail);
+	console.log(' ');
 	return(
 		<TouchableOpacity onPress={() => navigation.navigate('Conversa', { contatoNome: item.nome, contatoEmail: item.contatoEmail })}>
 			<View style={{ flex: 1, padding: 20, borderBottomWidth: 1, borderColor: '#ccc' }}>
