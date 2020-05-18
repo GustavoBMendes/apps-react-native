@@ -3,8 +3,18 @@ import { View, Text, TextInput, Button, ImageBackground, ActivityIndicator, Imag
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { modificaEmail, modificaSenha, autenticarUser, showPsswrdOnOff } from '../actions/AutenticacaoActions';
+import * as firebase from 'firebase';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class Login extends Component {
+
+	componentDidMount() {
+		firebase.auth().onAuthStateChanged(user => {
+			if (user != null) {
+			  this.props.navigation.navigate('Principal')
+			}
+		})
+	}
 
 	_autenticarUser() {
 		const { email, senha, navigation } = this.props;

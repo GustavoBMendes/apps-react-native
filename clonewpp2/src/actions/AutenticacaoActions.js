@@ -1,5 +1,7 @@
 import firebase from 'firebase';
 import b64 from 'base-64';
+import AsyncStorage from '@react-native-community/async-storage';
+
 import {
 	MODIFICA_EMAIL,
 	MODIFICA_SENHA,
@@ -75,9 +77,14 @@ export const autenticarUser = ({ email, senha, navigation }) => {
 
 		dispatch({ type: CARREGANDO_LOGIN })
 
+		firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+		.then( () => {
 		firebase.auth().signInWithEmailAndPassword(email, senha)
 			.then(value => loginSucesso(dispatch, navigation))
 			.catch(erro => loginErro(erro, dispatch));
+		});
+
+		console.log('current user 2', firebase.auth().currentUser);
 	}
 
 }
